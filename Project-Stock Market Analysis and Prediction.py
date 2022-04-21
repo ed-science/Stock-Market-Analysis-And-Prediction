@@ -134,7 +134,7 @@ AAPL['Volume'].plot(legend=True, figsize=(10,4))
 MA_day = [10,20,50,100]
 
 for ma in MA_day:
-    column_name = 'MA for %s days' %(str(ma))
+    column_name = f'MA for {str(ma)} days'
     AAPL[column_name] = pd.rolling_mean(AAPL['Close'],ma)
 
 
@@ -508,11 +508,11 @@ GOOGL.head()
 
 start_price = 830.09
 
-for run in range(100):
+for _ in range(100):
     plt.plot(stock_monte_carlo(start_price, days, mu, sigma))
-    
+
 plt.xlabel("Days")
-plt.ylabel("Price")  
+plt.ylabel("Price")
 plt.title('Monte Carlo Analysis for Google')
 
 
@@ -528,11 +528,11 @@ AMZN.head()
 
 start_price = 824.95
 
-for run in range(100):
+for _ in range(100):
     plt.plot(stock_monte_carlo(start_price, days, mu, sigma))
-    
+
 plt.xlabel("Days")
-plt.ylabel("Price")  
+plt.ylabel("Price")
 plt.title('Monte Carlo Analysis for Amazon')
 
 
@@ -548,11 +548,11 @@ AAPL.head()
 
 start_price = 117.10
 
-for run in range(100):
+for _ in range(100):
     plt.plot(stock_monte_carlo(start_price, days, mu, sigma))
-    
+
 plt.xlabel("Days")
-plt.ylabel("Price")  
+plt.ylabel("Price")
 plt.title('Monte Carlo Analysis for Apple')
 
 
@@ -568,11 +568,11 @@ MSFT.head()
 
 start_price = 59.94
 
-for run in range(100):
+for _ in range(100):
     plt.plot(stock_monte_carlo(start_price, days, mu, sigma))
-    
+
 plt.xlabel("Days")
-plt.ylabel("Price")  
+plt.ylabel("Price")
 plt.title('Monte Carlo Analysis for Microsoft')
 
 
@@ -627,7 +627,12 @@ plt.figtext(0.15, 0.6, s="q(0.99): $%.2f" % q)
 plt.axvline(x=q, linewidth=4, color='r')
 
 # For plot title
-plt.title(s="Final price distribution for Google Stock(GOOGL) after %s days" % days, weight='bold', color='Y')
+plt.title(
+    s=f"Final price distribution for Google Stock(GOOGL) after {days} days",
+    weight='bold',
+    color='Y',
+)
+
 
 
 # Awesome! Now we have looked at the 1% empirical quantile of the final price distribution to estimate the Value at Risk for the Google Stock(GOOGL), which looks to be $17.98 for every investment of 
@@ -683,7 +688,12 @@ plt.figtext(0.15, 0.6, s="q(0.99): $%.2f" % q)
 plt.axvline(x=q, linewidth=4, color='r')
 
 # For plot title
-plt.title(s="Final price distribution for Amazon Stock(AMZN) after %s days" % days, weight='bold', color='G')
+plt.title(
+    s=f"Final price distribution for Amazon Stock(AMZN) after {days} days",
+    weight='bold',
+    color='G',
+)
+
 
 
 # This basically means for every initial AMZN stock you purchase you're putting about $18.13 at risk 99% of the time from our Monte Carlo Simulation.
@@ -733,7 +743,12 @@ plt.figtext(0.15, 0.6, s="q(0.99): $%.2f" % q)
 plt.axvline(x=q, linewidth=4, color='r')
 
 # For plot title
-plt.title(s="Final price distribution for Apple Stock(AAPL) after %s days" % days, weight='bold', color='B')
+plt.title(
+    s=f"Final price distribution for Apple Stock(AAPL) after {days} days",
+    weight='bold',
+    color='B',
+)
+
 
 
 # Great! This basically means for every initial AAPL stock you purchase you're putting about $2.48 at risk 99% of the time from our Monte Carlo Simulation.
@@ -782,7 +797,12 @@ plt.figtext(0.15, 0.6, s="q(0.99): $%.2f" % q)
 plt.axvline(x=q, linewidth=4, color='r')
 
 # For plot title
-plt.title(s="Final price distribution for Microsoft Stock(MSFT) after %s days" % days, weight='bold', color='M')
+plt.title(
+    s=f"Final price distribution for Microsoft Stock(MSFT) after {days} days",
+    weight='bold',
+    color='M',
+)
+
 
 
 # Nice, This basically means for every initial MSFT stock you purchase you're putting about $1.28 at risk 99% of the time from our Monte Carlo Simulation.
